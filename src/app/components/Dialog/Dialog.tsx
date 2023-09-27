@@ -4,13 +4,18 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 interface DialogProps {
-  isOpened: boolean;
+  isOpen: boolean;
   onClose: () => void;
   additionalClass?: string;
 }
 
+interface DialogText {
+  buttonPlayAgain: string;
+  buttonReset: string;
+}
+
 const Dialog: React.FunctionComponent<DialogProps> = ({
-  isOpened,
+  isOpen,
   onClose,
   additionalClass,
 }) => {
@@ -25,34 +30,39 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
     player2score,
   } = useAppContext();
 
+  const dialogText: DialogText = {
+    buttonPlayAgain: "Gioca di nuovo",
+    buttonReset: "Reset",
+  };
+  const { buttonPlayAgain, buttonReset } = dialogText;
+
   const router = useRouter();
   const { mode } = router.query;
 
-  let text1 = "";
-  let text2 = "";
-  let winner = "";
+  let user1text: string = "";
+  let user2text: string = "";
+  let winner: string = "";
 
   const ref = useRef<HTMLDialogElement>(null);
   const dialogClass = `dialog ${additionalClass ? additionalClass : ""}`;
 
-  const handleNewGameButtonClick = () => {
+  const handleNewGameButtonClick = (): void => {
     if (result === "Vince il computer!") {
       setPlayer1score(player1score + 1);
     } else if (result === "Hai vinto!") {
       setPlayer2score(player2score + 1);
     }
 
-    // Close the dialog
     onClose();
   };
 
   useEffect(() => {
-    if (isOpened) {
+    if (isOpen) {
       ref.current?.showModal();
     } else {
       ref.current?.close();
     }
-  }, [isOpened]);
+  }, [isOpen]);
 
   const resetGame = () => {
     setPlayer1score(0);
@@ -60,12 +70,12 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
   };
 
   if (mode === "human-vs-computer") {
-    text1 = "Hai scelto:";
-    text2 = "Il computer ha scelto:";
+    user1text = "Hai scelto:";
+    user2text = "Il computer ha scelto:";
     winner = result;
   } else {
-    text1 = "L'AI ha scelto:";
-    text2 = "Il computer ha scelto:";
+    user1text = "L'AI ha scelto:";
+    user2text = "Il computer ha scelto:";
 
     if (result === "Vince il computer!") {
       winner = "Il Computer ha vinto!";
@@ -79,16 +89,16 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
   return (
     <dialog className={dialogClass} ref={ref}>
       <p>
-        {text1} {user1choice}
+        {user1text} {user1choice}
       </p>
       <p>
-        {text2} {user2choice}
+        {user2text} {user2choice}
       </p>
       <strong>{winner}</strong>
       <br />
-      <button onClick={handleNewGameButtonClick}>Play again</button>
+      <button onClick={handleNewGameButtonClick}>{buttonPlayAgain}</button>
       <Link href="/">
-        <button onClick={resetGame}>Reset</button>
+        <button onClick={resetGame}>{buttonReset}</button>
       </Link>
     </dialog>
   );
