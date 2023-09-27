@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPerson, faRobot } from "@fortawesome/free-solid-svg-icons";
+import styles from './index.module.css';
 
 import Link from "next/link";
 
@@ -15,23 +16,25 @@ const Index: React.FunctionComponent = () => {
   const { heading, vs } = indexText;
 
   return (
-    <div>
-      <h1>{heading}</h1>
-      <Link href={HUMAN_VS_COMPUTER_ROUTE}>
-        <button>
-          <FontAwesomeIcon icon={faPerson} />
-          <span>{vs}</span>
-          <FontAwesomeIcon icon={faRobot} />
-        </button>
-      </Link>
-      <Link href={COMPUTER_VS_COMPUTER_ROUTE}>
-        <button>
-          <FontAwesomeIcon icon={faRobot} />
-          <span>{vs}</span>
-          <FontAwesomeIcon icon={faRobot} />
-        </button>
-      </Link>
-    </div>
+    <section>
+      <h1 className={styles.heading}>{heading}</h1>
+      <div className={styles.buttons}>
+        <Link href={HUMAN_VS_COMPUTER_ROUTE}>
+          <button>
+            <FontAwesomeIcon icon={faPerson} />
+            <span>{vs}</span>
+            <FontAwesomeIcon icon={faRobot} />
+          </button>
+        </Link>
+        <Link href={COMPUTER_VS_COMPUTER_ROUTE}>
+          <button>
+            <FontAwesomeIcon icon={faRobot} />
+            <span>{vs}</span>
+            <FontAwesomeIcon icon={faRobot} />
+          </button>
+        </Link>
+      </div>
+    </section>
   );
 };
 

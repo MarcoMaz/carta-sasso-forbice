@@ -1,0 +1,17 @@
+.heading {
+  font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.buttons button {
+  padding: 0.5rem 1rem;
+}
+
+.buttons button:first-child{
+  margin-bottom: 1rem;
+}
+
+.buttons span {
+  margin: 0 1rem;
+}
