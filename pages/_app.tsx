@@ -34,7 +34,7 @@ export function useAppContext() {
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const choices: string[] = ["sasso", "carta", "forbice"];
+  const choices: string[] = ["carta", "sasso", "forbice"];
 
   const [user1choice, setUser1choice] = useState<string>("");
   const [user2choice, setUser2choice] = useState<string>("");
