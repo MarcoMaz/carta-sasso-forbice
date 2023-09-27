@@ -2,6 +2,13 @@ import { useEffect, useRef } from "react";
 import { useAppContext } from "../../../../pages/_app";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  IconDefinition,
+  faHand,
+  faHandBackFist,
+  faHandScissors,
+} from "@fortawesome/free-solid-svg-icons";
 
 interface DialogProps {
   isOpen: boolean;
@@ -14,6 +21,12 @@ interface DialogText {
   buttonReset: string;
 }
 
+interface DialogIcons {
+  carta: IconDefinition,
+  sasso: IconDefinition,
+  forbice: IconDefinition
+}
+
 const Dialog: React.FunctionComponent<DialogProps> = ({
   isOpen,
   onClose,
@@ -24,11 +37,17 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
     user1choice,
     user2choice,
     result,
-    setPlayer1score,
     player1score,
-    setPlayer2score,
     player2score,
+    setPlayer1score,
+    setPlayer2score,
   } = useAppContext();
+
+  const choiceIcons: DialogIcons = {
+    carta: faHand,
+    sasso: faHandBackFist,
+    forbice: faHandScissors,
+  };
 
   const dialogText: DialogText = {
     buttonPlayAgain: "Gioca di nuovo",
@@ -89,10 +108,10 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
   return (
     <dialog className={dialogClass} ref={ref}>
       <p>
-        {user1text} {user1choice}
+        {user1text} <FontAwesomeIcon icon={choiceIcons[user1choice as keyof DialogIcons]} />
       </p>
       <p>
-        {user2text} {user2choice}
+        {user2text} <FontAwesomeIcon icon={choiceIcons[user2choice as keyof DialogIcons]} />
       </p>
       <strong>{winner}</strong>
       <br />
