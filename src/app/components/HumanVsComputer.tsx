@@ -2,15 +2,21 @@ import { useEffect, useState } from "react";
 import { useAppContext } from "../../../pages/_app";
 import { getRandomChoice, determineWinner } from "../../../utils/utils";
 import Dialog from "./Dialog/Dialog";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHand,
+  faHandBackFist,
+  faHandScissors,
+} from "@fortawesome/free-solid-svg-icons";
 
 interface HumanVsComputerText {
   user1: string;
   user2: string;
   CTA: string;
-  buttonSasso: string;
-  buttonCarta: string;
-  buttonForbice: string;
-};
+  choiceCarta: string;
+  choiceSasso: string;
+  choiceForbice: string;
+}
 
 const HumanVsComputer: React.FunctionComponent = () => {
   // Context
@@ -19,8 +25,8 @@ const HumanVsComputer: React.FunctionComponent = () => {
     player1score,
     player2score,
     user1choice,
-    setUser1choice,
     user2choice,
+    setUser1choice,
     setUser2choice,
     setResult,
   } = useAppContext();
@@ -29,12 +35,12 @@ const HumanVsComputer: React.FunctionComponent = () => {
     user1: "Computer",
     user2: "Tu",
     CTA: "Tocca a te:",
-    buttonSasso: "sasso",
-    buttonCarta: "carta",
-    buttonForbice: "forbice",
+    choiceCarta: "carta",
+    choiceSasso: "sasso",
+    choiceForbice: "forbice",
   };
 
-  const { user1, user2, CTA, buttonSasso, buttonCarta, buttonForbice } =
+  const { user1, user2, CTA, choiceCarta, choiceSasso, choiceForbice } =
     humanVsComputerText;
 
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
@@ -66,14 +72,14 @@ const HumanVsComputer: React.FunctionComponent = () => {
         {user2} <span>{player2score}</span>
       </h2>
       <p>{CTA}</p>
-      <button onClick={() => handleUserChoice(buttonSasso)}>
-        {buttonSasso}
+      <button onClick={() => handleUserChoice(choiceCarta)}>
+        <FontAwesomeIcon icon={faHand} />
       </button>
-      <button onClick={() => handleUserChoice(buttonCarta)}>
-        {buttonCarta}
+      <button onClick={() => handleUserChoice(choiceSasso)}>
+        <FontAwesomeIcon icon={faHandBackFist} />
       </button>
-      <button onClick={() => handleUserChoice(buttonForbice)}>
-        {buttonForbice}
+      <button onClick={() => handleUserChoice(choiceForbice)}>
+        <FontAwesomeIcon icon={faHandScissors} />
       </button>
       <Dialog isOpen={isDialogOpen} onClose={handleDialogClose} />
     </div>
