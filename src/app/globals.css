@@ -44,7 +44,8 @@ button:active {
 }
 
 h1,
-h2 {
+h2,
+p {
   color: var(--color-black);
   margin-top: 0;
 }

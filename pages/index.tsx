@@ -21,9 +21,9 @@ const Index: React.FunctionComponent = () => {
       <div className={styles.buttons}>
         <Link href={HUMAN_VS_COMPUTER_ROUTE}>
           <button>
-            <FontAwesomeIcon icon={faPerson} />
-            <span>{vs}</span>
             <FontAwesomeIcon icon={faRobot} />
+            <span>{vs}</span>
+            <FontAwesomeIcon icon={faPerson} />
           </button>
         </Link>
         <Link href={COMPUTER_VS_COMPUTER_ROUTE}>

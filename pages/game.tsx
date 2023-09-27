@@ -9,10 +9,10 @@ const Game: React.FunctionComponent = () => {
   const { mode } = router.query;
 
   return (
-    <div>
+    <section>
       {mode === 'human-vs-computer' && <HumanVsComputer />}
       {mode === 'computer-vs-computer' && <ComputerVsComputer />}
-    </div>
+    </section>
   );
 };
 
