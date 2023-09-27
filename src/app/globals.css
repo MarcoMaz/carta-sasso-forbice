@@ -1,0 +1,50 @@
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-action--default: #4a85f6;
+  --color-action--hover: #4068dd;
+  --color-action--active: #3c6ea9;
+  --color-background: #f5f5f5;
+  --color-text: #757575;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  margin: 0;
+}
+
+section {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+button {
+  background: var(--color-action--default);
+  border: 0;
+  border-radius: 0.375rem;
+  color: var(--color-white);
+  font-size: 2rem;
+  width: 100%;
+}
+
+button:hover {
+  background: var(--color-action--hover);
+}
+
+button:active {
+  background: var(--color-action--active);
+}
+
+h1,
+h2 {
+  color: var(--color-black);
+  margin-top: 0;
+}

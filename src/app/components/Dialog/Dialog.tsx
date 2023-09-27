@@ -22,9 +22,9 @@ interface DialogText {
 }
 
 interface DialogIcons {
-  carta: IconDefinition,
-  sasso: IconDefinition,
-  forbice: IconDefinition
+  carta: IconDefinition;
+  sasso: IconDefinition;
+  forbice: IconDefinition;
 }
 
 const Dialog: React.FunctionComponent<DialogProps> = ({
@@ -108,10 +108,20 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
   return (
     <dialog className={dialogClass} ref={ref}>
       <p>
-        {user1text} <FontAwesomeIcon icon={choiceIcons[user1choice as keyof DialogIcons]} />
+        {user1text}
+        {user1choice && (
+          <FontAwesomeIcon
+            icon={choiceIcons[user1choice as keyof DialogIcons]}
+          />
+        )}
       </p>
       <p>
-        {user2text} <FontAwesomeIcon icon={choiceIcons[user2choice as keyof DialogIcons]} />
+        {user2text}
+        {user2choice && (
+          <FontAwesomeIcon
+            icon={choiceIcons[user2choice as keyof DialogIcons]}
+          />
+        )}
       </p>
       <strong>{winner}</strong>
       <br />

@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useState } from "react";
 import { AppProps } from "next/app";
 
+import "../src/app/globals.css"
+
 interface AppContextType {
   choices: string[];
   user1choice: string;
