@@ -10,7 +10,7 @@ import {
   faRobot,
   faPerson,
 } from "@fortawesome/free-solid-svg-icons";
-import styles from './humanVsComputer.module.css';
+import styles from './match.module.css';
 
 interface HumanVsComputerText {
   user1: string;

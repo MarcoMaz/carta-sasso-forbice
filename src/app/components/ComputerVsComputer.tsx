@@ -2,6 +2,12 @@ import { useEffect, useState } from "react";
 import { useAppContext } from "../../../pages/_app";
 import { getRandomChoice, determineWinner } from "../../../utils/utils";
 import Dialog from "./Dialog/Dialog";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faRobot,
+  faPerson,
+} from "@fortawesome/free-solid-svg-icons";
+import styles from './match.module.css';
 
 interface ComputerVsComputerText {
   user1: string;
@@ -51,15 +57,22 @@ const ComputerVsComputer: React.FunctionComponent = () => {
   };
 
   return (
-    <div>
-      <h2>
-        {user1} <span>{player1score}</span>
-      </h2>
-      <h2>
-        {user2} <span>{player2score}</span>
-      </h2>
+    <>
+      <div className={styles.persona}>
+        <h2>{user1} <span>{player1score}</span></h2>
+        <div className={styles.icon}>
+          <FontAwesomeIcon icon={faRobot} />
+        </div>
+      </div>
+      <div className={styles.versus}>VS</div>
+      <div className={styles.persona}>
+        <h2>{user2} <span>{player2score}</span></h2>
+        <div className={styles.icon}>
+          <FontAwesomeIcon icon={faPerson} />
+        </div>
+      </div>
       <Dialog isOpen={isDialogOpen} onClose={handleDialogClose} />
-    </div>
+    </>
   );
 };
 
