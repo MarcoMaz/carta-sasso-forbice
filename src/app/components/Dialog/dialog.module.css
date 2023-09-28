@@ -24,8 +24,9 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  text-align: center;
   text-transform: uppercase;
 }
 
@@ -49,6 +50,7 @@
   font-size: 2rem;
   margin: 0 auto;
   padding: 0.5rem 3rem;
+  text-align: center;
 }
 
 .cta button {

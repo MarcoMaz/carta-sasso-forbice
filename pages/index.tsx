@@ -19,14 +19,14 @@ const Index: React.FunctionComponent = () => {
     <section>
       <h1 className={styles.heading}>{heading}</h1>
       <div className={styles.buttons}>
-        <Link href={HUMAN_VS_COMPUTER_ROUTE}>
+        <Link href={HUMAN_VS_COMPUTER_ROUTE} className={styles.buttonHumanComputer}>
           <button>
             <FontAwesomeIcon icon={faRobot} />
             <span>{vs}</span>
             <FontAwesomeIcon icon={faPerson} />
           </button>
         </Link>
-        <Link href={COMPUTER_VS_COMPUTER_ROUTE}>
+        <Link href={COMPUTER_VS_COMPUTER_ROUTE} className={styles.buttonComputerComputer}>
           <button>
             <FontAwesomeIcon icon={faRobot} />
             <span>{vs}</span>

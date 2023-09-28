@@ -8,10 +8,10 @@
   padding: 0.5rem 1rem;
 }
 
-.buttons button:first-child{
-  margin-bottom: 1rem;
-}
-
 .buttons span {
   margin: 0 1rem;
+}
+
+.buttonHumanComputer button {
+  margin-bottom: 1rem;
 }
