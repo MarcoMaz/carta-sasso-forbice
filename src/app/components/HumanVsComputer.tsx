@@ -10,7 +10,7 @@ import {
   faRobot,
   faPerson,
 } from "@fortawesome/free-solid-svg-icons";
-import styles from './match.module.css';
+import styles from "./match.module.css";
 
 interface HumanVsComputerText {
   user1: string;
@@ -67,34 +67,40 @@ const HumanVsComputer: React.FunctionComponent = () => {
   }, [user1choice, user2choice, setResult]);
 
   return (
-    <>
-      <div className={styles.persona}>
-        <h2>{user1} <span>{player1score}</span></h2>
+    <div className={styles.container}>
+      <div className={`${styles.persona} ${styles.persona1}`}>
+        <h2>
+          {user1} <span>{player1score}</span>
+        </h2>
         <div className={styles.icon}>
           <FontAwesomeIcon icon={faRobot} />
         </div>
       </div>
       <div className={styles.versus}>VS</div>
-      <div className={styles.persona}>
-        <h2>{user2} <span>{player2score}</span></h2>
+      <div className={`${styles.persona} ${styles.persona2}`}>
+        <h2>
+          {user2} <span>{player2score}</span>
+        </h2>
         <div className={styles.icon}>
           <FontAwesomeIcon icon={faPerson} />
         </div>
       </div>
       <div className={styles.cta}>
         <p>{CTA}</p>
-        <button onClick={() => handleUserChoice(choiceCarta)}>
-          <FontAwesomeIcon icon={faHand} />
-        </button>
-        <button onClick={() => handleUserChoice(choiceSasso)}>
-          <FontAwesomeIcon icon={faHandBackFist} />
-        </button>
-        <button onClick={() => handleUserChoice(choiceForbice)}>
-          <FontAwesomeIcon icon={faHandScissors} />
-        </button>
+        <div className={styles.buttons}>
+          <button onClick={() => handleUserChoice(choiceCarta)}>
+            <FontAwesomeIcon icon={faHand} />
+          </button>
+          <button onClick={() => handleUserChoice(choiceSasso)}>
+            <FontAwesomeIcon icon={faHandBackFist} />
+          </button>
+          <button onClick={() => handleUserChoice(choiceForbice)}>
+            <FontAwesomeIcon icon={faHandScissors} />
+          </button>
+        </div>
       </div>
       <Dialog isOpen={isDialogOpen} onClose={handleDialogClose} />
-    </>
+    </div>
   );
 };
 

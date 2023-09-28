@@ -57,22 +57,22 @@ const ComputerVsComputer: React.FunctionComponent = () => {
   };
 
   return (
-    <>
-      <div className={styles.persona}>
+    <div className={styles.container}>
+      <div className={`${styles.persona} ${styles.persona1}`}>
         <h2>{user1} <span>{player1score}</span></h2>
         <div className={styles.icon}>
           <FontAwesomeIcon icon={faRobot} />
         </div>
       </div>
       <div className={styles.versus}>VS</div>
-      <div className={styles.persona}>
+      <div className={`${styles.persona} ${styles.persona2}`}>
         <h2>{user2} <span>{player2score}</span></h2>
         <div className={styles.icon}>
           <FontAwesomeIcon icon={faPerson} />
         </div>
       </div>
       <Dialog isOpen={isDialogOpen} onClose={handleDialogClose} />
-    </>
+    </div>
   );
 };
 

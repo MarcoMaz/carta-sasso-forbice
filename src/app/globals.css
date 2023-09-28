@@ -49,10 +49,5 @@ h2,
 p {
   color: var(--color-black);
   margin: 0;
-}
-
-@media (min-width: 768px) {
-  section {
-    padding: 5rem;
-  }
+  text-align: center;
 }
