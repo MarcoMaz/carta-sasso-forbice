@@ -26,6 +26,16 @@ section {
   padding: 2rem;
 }
 
+a {
+  text-decoration: none;
+}
+
+svg {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+
 button {
   background: var(--color-action--default);
   border: 0;
