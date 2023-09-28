@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPerson, faRobot } from "@fortawesome/free-solid-svg-icons";
 import styles from './index.module.css';
+import Image from 'next/image';
 
 import Link from "next/link";
 
@@ -18,6 +19,14 @@ const Index: React.FunctionComponent = () => {
   return (
     <section>
       <h1 className={styles.heading}>{heading}</h1>
+      <div className={styles.image}>
+        <Image
+          src="/intro_img.svg"
+          alt="Intro image app"
+          width={200} 
+          height={200}
+        />
+      </div>
       <div className={styles.buttons}>
         <Link href={HUMAN_VS_COMPUTER_ROUTE} className={styles.buttonHumanComputer}>
           <button>

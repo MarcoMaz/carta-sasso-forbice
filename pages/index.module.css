@@ -4,6 +4,12 @@
   text-transform: uppercase;
 }
 
+.image {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 .buttons button {
   padding: 0.5rem 1rem;
 }
