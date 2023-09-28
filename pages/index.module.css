@@ -26,12 +26,15 @@
   .buttons {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 25vw;
     margin: 0 auto;
   }
 
-  .buttonHumanComputer button {
+  .buttons button {
     margin-bottom: 0;
+    width: max-content;
+  }
+
+  .buttonHumanComputer button {
+    margin-right: 1rem;
   }
 }
