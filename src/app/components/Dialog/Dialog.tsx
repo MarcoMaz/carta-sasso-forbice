@@ -9,6 +9,7 @@ import {
   faHandBackFist,
   faHandScissors,
 } from "@fortawesome/free-solid-svg-icons";
+import styles from "./dialog.module.css";
 
 interface DialogProps {
   isOpen: boolean;
@@ -63,7 +64,6 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
   let winner: string = "";
 
   const ref = useRef<HTMLDialogElement>(null);
-  const dialogClass = `dialog ${additionalClass ? additionalClass : ""}`;
 
   const handleNewGameButtonClick = (): void => {
     if (result === "Vince il computer!") {
@@ -89,7 +89,7 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
   };
 
   if (mode === "human-vs-computer") {
-    user1text = "Hai scelto:";
+    user1text = "Tu hai scelto:";
     user2text = "Il computer ha scelto:";
     winner = result;
   } else {
@@ -106,29 +106,36 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
   }
 
   return (
-    <dialog className={dialogClass} ref={ref}>
-      <p>
-        {user1text}
-        {user1choice && (
-          <FontAwesomeIcon
-            icon={choiceIcons[user1choice as keyof DialogIcons]}
-          />
-        )}
-      </p>
-      <p>
-        {user2text}
-        {user2choice && (
-          <FontAwesomeIcon
-            icon={choiceIcons[user2choice as keyof DialogIcons]}
-          />
-        )}
-      </p>
-      <strong>{winner}</strong>
-      <br />
-      <button onClick={handleNewGameButtonClick}>{buttonPlayAgain}</button>
-      <Link href="/">
-        <button onClick={resetGame}>{buttonReset}</button>
-      </Link>
+    <dialog className={styles.container} ref={ref}>
+      <div className={styles.wrapper}>
+        <div className={styles.personaResult}>
+          {user2text}
+          {user2choice && (
+            <div className={styles.icon}>
+              <FontAwesomeIcon
+                icon={choiceIcons[user2choice as keyof DialogIcons]}
+              />
+            </div>
+          )}
+        </div>
+        <div className={styles.personaResult}>
+          {user1text}
+          {user1choice && (
+            <div className={styles.icon}>
+              <FontAwesomeIcon
+                icon={choiceIcons[user1choice as keyof DialogIcons]}
+              />
+            </div>
+          )}
+        </div>
+        <div className={styles.winner}>{winner}</div>
+        <div className={styles.cta}>
+          <button onClick={handleNewGameButtonClick}>{buttonPlayAgain}</button>
+          <Link href="/">
+            <button onClick={resetGame}>{buttonReset}</button>
+          </Link>
+        </div>
+      </div>
     </dialog>
   );
 };
