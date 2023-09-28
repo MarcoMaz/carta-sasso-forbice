@@ -23,6 +23,10 @@
 }
 
 @media (min-width: 768px) {
+  .container {
+    padding: 5rem;
+  }
+
   .buttons {
     display: flex;
     flex-direction: row;

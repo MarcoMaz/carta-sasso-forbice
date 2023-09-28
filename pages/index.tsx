@@ -44,7 +44,7 @@ const Index: React.FunctionComponent = () => {
   }, []);
 
   return (
-    <section>
+    <section className={styles.container}>
       <h1 className={styles.heading} data-testid="intro-heading">
         {heading}
       </h1>
@@ -61,7 +61,6 @@ const Index: React.FunctionComponent = () => {
         <Link
           href={HUMAN_VS_COMPUTER_ROUTE}
           className={styles.buttonHumanComputer}
-          
         >
           <button data-testid="intro-button-human-vs-computer">
             <FontAwesomeIcon icon={faRobot} />
@@ -72,7 +71,6 @@ const Index: React.FunctionComponent = () => {
         <Link
           href={COMPUTER_VS_COMPUTER_ROUTE}
           className={styles.buttonComputerComputer}
-          
         >
           <button data-testid="intro-button-computer-vs-computer">
             <FontAwesomeIcon icon={faRobot} />
