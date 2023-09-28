@@ -53,17 +53,14 @@
 
 @media (min-width: 768px) {
   .container {
-
-
-    width: 50vw;
-    margin: 0 auto;
-    padding: 5rem;
-
     display: grid;
     grid-template-areas:
       "persona1 versus persona2"
       "cta cta cta";
     grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto;
+    padding: 5rem;
+    width: 50vw;
   }
 
   .container div {
@@ -85,10 +82,9 @@
 
   .cta {
     grid-area: cta;
-
-    width: 25vw;
     margin: 0 auto;
     text-align: center;
+    width: 25vw;
   }
 
   .cta p {
