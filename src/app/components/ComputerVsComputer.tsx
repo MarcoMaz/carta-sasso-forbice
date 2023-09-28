@@ -59,14 +59,14 @@ const ComputerVsComputer: React.FunctionComponent = () => {
   return (
     <div className={styles.container}>
       <div className={`${styles.persona} ${styles.persona1}`}>
-        <h2>{user1} <span>{player1score}</span></h2>
+        <h2 data-testid="persona1-heading">{user1} <span>{player1score}</span></h2>
         <div className={styles.icon}>
           <FontAwesomeIcon icon={faRobot} />
         </div>
       </div>
       <div className={styles.versus}>VS</div>
       <div className={`${styles.persona} ${styles.persona2}`}>
-        <h2>{user2} <span>{player2score}</span></h2>
+        <h2 data-testid="persona2-heading">{user2} <span>{player2score}</span></h2>
         <div className={styles.icon}>
           <FontAwesomeIcon icon={faPerson} />
         </div>

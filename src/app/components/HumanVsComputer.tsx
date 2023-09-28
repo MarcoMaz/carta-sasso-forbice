@@ -69,16 +69,18 @@ const HumanVsComputer: React.FunctionComponent = () => {
   return (
     <div className={styles.container}>
       <div className={`${styles.persona} ${styles.persona1}`}>
-        <h2>
+        <h2 data-testid="persona1-heading">
           {user1} <span data-testid="persona1-score">{player1score}</span>
         </h2>
         <div className={styles.icon}>
           <FontAwesomeIcon icon={faRobot} />
         </div>
       </div>
-      <div className={styles.versus}>VS</div>
+      <span className={styles.versus} data-testid="versus">
+        VS
+      </span>
       <div className={`${styles.persona} ${styles.persona2}`}>
-        <h2>
+        <h2 data-testid="persona2-heading">
           {user2} <span data-testid="persona2-score">{player2score}</span>
         </h2>
         <div className={styles.icon}>
@@ -86,7 +88,7 @@ const HumanVsComputer: React.FunctionComponent = () => {
         </div>
       </div>
       <div className={styles.cta}>
-        <p>{CTA}</p>
+        <p data-testid="cta-paragraph">{CTA}</p>
         <div className={styles.buttons}>
           <button
             onClick={() => handleUserChoice(choiceCarta)}

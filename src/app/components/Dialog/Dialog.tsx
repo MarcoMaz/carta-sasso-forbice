@@ -110,7 +110,7 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
       <div className={styles.wrapper}>
         <div
           className={`${styles.personaResult} ${styles.personaResult1}`}
-          data-testid="persona1-heading"
+          data-testid="dialog-persona1-heading"
         >
           {user2text}
           {user2choice && (
@@ -123,7 +123,7 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
         </div>
         <div
           className={`${styles.personaResult} ${styles.personaResult2}`}
-          data-testid="persona2-heading"
+          data-testid="dialog-persona2-heading"
         >
           {user1text}
           {user1choice && (

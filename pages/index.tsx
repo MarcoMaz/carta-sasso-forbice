@@ -55,6 +55,7 @@ const Index: React.FunctionComponent = () => {
           width={imageSize.width}
           height={imageSize.height}
           data-testid="intro-image"
+          priority={true}
         />
       </div>
       <div className={styles.buttons}>
