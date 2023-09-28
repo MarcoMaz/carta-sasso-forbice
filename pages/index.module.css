@@ -21,3 +21,17 @@
 .buttonHumanComputer button {
   margin-bottom: 1rem;
 }
+
+@media (min-width: 768px) {
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 25vw;
+    margin: 0 auto;
+  }
+
+  .buttonHumanComputer button {
+    margin-bottom: 0;
+  }
+}
