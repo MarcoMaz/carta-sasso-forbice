@@ -106,9 +106,12 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
   }
 
   return (
-    <dialog className={styles.container} ref={ref}>
+    <dialog className={styles.container} ref={ref} data-testid="dialog">
       <div className={styles.wrapper}>
-        <div className={`${styles.personaResult} ${styles.personaResult1}`}>
+        <div
+          className={`${styles.personaResult} ${styles.personaResult1}`}
+          data-testid="persona1-heading"
+        >
           {user2text}
           {user2choice && (
             <div className={styles.icon}>
@@ -118,7 +121,10 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
             </div>
           )}
         </div>
-        <div className={`${styles.personaResult} ${styles.personaResult2}`}>
+        <div
+          className={`${styles.personaResult} ${styles.personaResult2}`}
+          data-testid="persona2-heading"
+        >
           {user1text}
           {user1choice && (
             <div className={styles.icon}>
@@ -130,8 +136,10 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
         </div>
         <div className={styles.winner}>{winner}</div>
         <div className={styles.cta}>
-          <button onClick={handleNewGameButtonClick}>{buttonPlayAgain}</button>
-          <Link href="/">
+          <button data-testid="button-play-again" onClick={handleNewGameButtonClick}>
+            {buttonPlayAgain}
+          </button>
+          <Link href="/" data-testid="button-reset">
             <button onClick={resetGame}>{buttonReset}</button>
           </Link>
         </div>

@@ -70,7 +70,7 @@ const HumanVsComputer: React.FunctionComponent = () => {
     <div className={styles.container}>
       <div className={`${styles.persona} ${styles.persona1}`}>
         <h2>
-          {user1} <span>{player1score}</span>
+          {user1} <span data-testid="persona1-score">{player1score}</span>
         </h2>
         <div className={styles.icon}>
           <FontAwesomeIcon icon={faRobot} />
@@ -79,7 +79,7 @@ const HumanVsComputer: React.FunctionComponent = () => {
       <div className={styles.versus}>VS</div>
       <div className={`${styles.persona} ${styles.persona2}`}>
         <h2>
-          {user2} <span>{player2score}</span>
+          {user2} <span data-testid="persona2-score">{player2score}</span>
         </h2>
         <div className={styles.icon}>
           <FontAwesomeIcon icon={faPerson} />
@@ -88,13 +88,22 @@ const HumanVsComputer: React.FunctionComponent = () => {
       <div className={styles.cta}>
         <p>{CTA}</p>
         <div className={styles.buttons}>
-          <button onClick={() => handleUserChoice(choiceCarta)}>
+          <button
+            onClick={() => handleUserChoice(choiceCarta)}
+            data-testid="button-carta"
+          >
             <FontAwesomeIcon icon={faHand} />
           </button>
-          <button onClick={() => handleUserChoice(choiceSasso)}>
+          <button
+            onClick={() => handleUserChoice(choiceSasso)}
+            data-testid="button-sasso"
+          >
             <FontAwesomeIcon icon={faHandBackFist} />
           </button>
-          <button onClick={() => handleUserChoice(choiceForbice)}>
+          <button
+            onClick={() => handleUserChoice(choiceForbice)}
+            data-testid="button-forbice"
+          >
             <FontAwesomeIcon icon={faHandScissors} />
           </button>
         </div>
