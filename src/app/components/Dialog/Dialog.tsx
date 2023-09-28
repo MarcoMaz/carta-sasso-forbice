@@ -108,7 +108,7 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
   return (
     <dialog className={styles.container} ref={ref}>
       <div className={styles.wrapper}>
-        <div className={styles.personaResult}>
+        <div className={`${styles.personaResult} ${styles.personaResult1}`}>
           {user2text}
           {user2choice && (
             <div className={styles.icon}>
@@ -118,7 +118,7 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
             </div>
           )}
         </div>
-        <div className={styles.personaResult}>
+        <div className={`${styles.personaResult} ${styles.personaResult2}`}>
           {user1text}
           {user1choice && (
             <div className={styles.icon}>
