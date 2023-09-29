@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
+
+import styles from "./match.module.css";
+
 import { useAppContext } from "../../../pages/_app";
 import { getRandomChoice, determineWinner } from "../../../utils/utils";
+
 import Dialog from "./Dialog/Dialog";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHand,
@@ -12,7 +17,6 @@ import {
   faPerson,
   faHandSpock,
 } from "@fortawesome/free-solid-svg-icons";
-import styles from "./match.module.css";
 
 interface HumanVsComputerText {
   user1: string;

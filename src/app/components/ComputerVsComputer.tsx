@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
+
+import styles from "./match.module.css";
+
 import { useAppContext } from "../../../pages/_app";
 import { getRandomChoice, determineWinner } from "../../../utils/utils";
+
 import Dialog from "./Dialog/Dialog";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faRobot,
-  faPerson,
-} from "@fortawesome/free-solid-svg-icons";
-import styles from './match.module.css';
+import { faRobot, faPerson } from "@fortawesome/free-solid-svg-icons";
 
 interface ComputerVsComputerText {
   user1: string;
   user2: string;
-};
+  vs: string;
+}
 
 const ComputerVsComputer: React.FunctionComponent = () => {
   // Context
@@ -28,9 +30,10 @@ const ComputerVsComputer: React.FunctionComponent = () => {
   const computerVsComputerText: ComputerVsComputerText = {
     user1: "Computer",
     user2: "AI",
+    vs: "VS",
   };
 
-  const { user1, user2 } = computerVsComputerText;
+  const { user1, user2, vs } = computerVsComputerText;
 
   const ONE_SECOND_DELAY: number = 1000;
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
@@ -59,14 +62,18 @@ const ComputerVsComputer: React.FunctionComponent = () => {
   return (
     <div className={styles.container}>
       <div className={`${styles.persona} ${styles.persona1}`}>
-        <h2 data-testid="persona1-heading">{user1} <span>{player1score}</span></h2>
+        <h2 data-testid="persona1-heading">
+          {user1} <span>{player1score}</span>
+        </h2>
         <div className={styles.icon}>
           <FontAwesomeIcon icon={faRobot} />
         </div>
       </div>
-      <div className={styles.versus}>VS</div>
+      <div className={styles.versus}>{vs}</div>
       <div className={`${styles.persona} ${styles.persona2}`}>
-        <h2 data-testid="persona2-heading">{user2} <span>{player2score}</span></h2>
+        <h2 data-testid="persona2-heading">
+          {user2} <span>{player2score}</span>
+        </h2>
         <div className={styles.icon}>
           <FontAwesomeIcon icon={faPerson} />
         </div>

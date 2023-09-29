@@ -1,7 +1,11 @@
 import { useEffect, useRef } from "react";
-import { useAppContext } from "../../../../pages/_app";
 import Link from "next/link";
 import { useRouter } from "next/router";
+
+import styles from "./dialog.module.css";
+
+import { useAppContext } from "../../../../pages/_app";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   IconDefinition,
@@ -11,7 +15,6 @@ import {
   faHandLizard,
   faHandSpock,
 } from "@fortawesome/free-solid-svg-icons";
-import styles from "./dialog.module.css";
 
 interface DialogProps {
   isOpen: boolean;
@@ -31,10 +34,7 @@ interface DialogIcons {
   spock: IconDefinition;
 }
 
-const Dialog: React.FunctionComponent<DialogProps> = ({
-  isOpen,
-  onClose,
-}) => {
+const Dialog: React.FunctionComponent<DialogProps> = ({ isOpen, onClose }) => {
   // Context
   const {
     user1choice,
@@ -51,7 +51,7 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
     sasso: faHandBackFist,
     forbice: faHandScissors,
     lucertola: faHandLizard,
-    spock: faHandSpock
+    spock: faHandSpock,
   };
 
   const dialogText: DialogText = {
@@ -140,7 +140,10 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
         </div>
         <div className={styles.winner}>{winner}</div>
         <div className={styles.cta}>
-          <button data-testid="button-play-again" onClick={handleNewGameButtonClick}>
+          <button
+            data-testid="button-play-again"
+            onClick={handleNewGameButtonClick}
+          >
             {buttonPlayAgain}
           </button>
           <Link href="/" data-testid="button-reset">
