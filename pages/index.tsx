@@ -10,7 +10,7 @@ const COMPUTER_VS_COMPUTER_ROUTE = "/game?mode=computer-vs-computer";
 
 const Index: React.FunctionComponent = () => {
   const indexText = {
-    heading: "Carta, sasso e forbice",
+    heading: "Carta, sasso, forbice, lucertola e Spock",
     vs: "vs",
   };
 

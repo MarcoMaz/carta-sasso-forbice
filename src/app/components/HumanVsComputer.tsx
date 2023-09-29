@@ -7,8 +7,10 @@ import {
   faHand,
   faHandBackFist,
   faHandScissors,
+  faHandLizard,
   faRobot,
   faPerson,
+  faHandSpock,
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./match.module.css";
 
@@ -19,6 +21,8 @@ interface HumanVsComputerText {
   choiceCarta: string;
   choiceSasso: string;
   choiceForbice: string;
+  choiceLucertola: string;
+  choiceSpock: string;
 }
 
 const HumanVsComputer: React.FunctionComponent = () => {
@@ -41,10 +45,20 @@ const HumanVsComputer: React.FunctionComponent = () => {
     choiceCarta: "carta",
     choiceSasso: "sasso",
     choiceForbice: "forbice",
+    choiceLucertola: "lucertola",
+    choiceSpock: "spock",
   };
 
-  const { user1, user2, CTA, choiceCarta, choiceSasso, choiceForbice } =
-    humanVsComputerText;
+  const {
+    user1,
+    user2,
+    CTA,
+    choiceCarta,
+    choiceSasso,
+    choiceForbice,
+    choiceLucertola,
+    choiceSpock,
+  } = humanVsComputerText;
 
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
 
@@ -107,6 +121,18 @@ const HumanVsComputer: React.FunctionComponent = () => {
             data-testid="button-forbice"
           >
             <FontAwesomeIcon icon={faHandScissors} />
+          </button>
+          <button
+            onClick={() => handleUserChoice(choiceLucertola)}
+            data-testid="button-lucertola"
+          >
+            <FontAwesomeIcon icon={faHandLizard} />
+          </button>
+          <button
+            onClick={() => handleUserChoice(choiceSpock)}
+            data-testid="button-spock"
+          >
+            <FontAwesomeIcon icon={faHandSpock} />
           </button>
         </div>
       </div>

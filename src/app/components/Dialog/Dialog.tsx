@@ -8,13 +8,14 @@ import {
   faHand,
   faHandBackFist,
   faHandScissors,
+  faHandLizard,
+  faHandSpock,
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./dialog.module.css";
 
 interface DialogProps {
   isOpen: boolean;
   onClose: () => void;
-  additionalClass?: string;
 }
 
 interface DialogText {
@@ -26,12 +27,13 @@ interface DialogIcons {
   carta: IconDefinition;
   sasso: IconDefinition;
   forbice: IconDefinition;
+  lucertola: IconDefinition;
+  spock: IconDefinition;
 }
 
 const Dialog: React.FunctionComponent<DialogProps> = ({
   isOpen,
   onClose,
-  additionalClass,
 }) => {
   // Context
   const {
@@ -48,6 +50,8 @@ const Dialog: React.FunctionComponent<DialogProps> = ({
     carta: faHand,
     sasso: faHandBackFist,
     forbice: faHandScissors,
+    lucertola: faHandLizard,
+    spock: faHandSpock
   };
 
   const dialogText: DialogText = {
