@@ -13,7 +13,7 @@ describe("Index", () => {
   });
 
   it("should display the heading", () => {
-    cy.get(INDEX_HEADING_SELECTOR).should("contain", "Carta, sasso e forbice");
+    cy.get(INDEX_HEADING_SELECTOR).should("contain", "Carta, sasso, forbice, lucertola e Spock");
   });
 
   it("should display the image", () => {
