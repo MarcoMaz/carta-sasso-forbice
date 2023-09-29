@@ -5,13 +5,19 @@ export const COMPUTER_VS_COMPUTER_URL: string =
   "http://localhost:3000/game?mode=computer-vs-computer";
 
 const fixturePaper = 0.1;
-const fixtureRock = 0.4;
-const fixtureScissors = 0.7;
+const fixtureRock = 0.2;
+const fixtureScissors = 0.4;
+const fixtureLizard = 0.6;
+const fixtureSpock = 0.8;
 
 const HUMAN_VS_COMPUTER_BUTTON_CARTA_SELECTOR = "[data-testid=button-carta]";
 const HUMAN_VS_COMPUTER_BUTTON_SASSO_SELECTOR = "[data-testid=button-sasso]";
 const HUMAN_VS_COMPUTER_BUTTON_FORBICE_SELECTOR =
   "[data-testid=button-forbice]";
+const HUMAN_VS_COMPUTER_BUTTON_LUCERTOLA_SELECTOR =
+  "[data-testid=button-lucertola]";
+const HUMAN_VS_COMPUTER_BUTTON_SPOCK_SELECTOR =
+  "[data-testid=button-spock]";
 
 const COMPUTER_VS_COMPUTER_PERSONA1_HEADING_SELECTOR =
   "[data-testid=persona1-heading]";
@@ -126,6 +132,33 @@ describe("Game", () => {
     cy.contains("Hai vinto!").should("be.visible");
   });
 
+  it("should result in 'lucertola' winning to 'carta'", () => {
+    cy.window().then((win) => {
+      win.Math.random = () => fixturePaper;
+    });
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_LUCERTOLA_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
+    cy.contains("Hai vinto!").should("be.visible");
+  });
+
+  it("should result in 'spock' losing to 'carta'", () => {
+    cy.window().then((win) => {
+      win.Math.random = () => fixturePaper;
+    });
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_SPOCK_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
+    cy.contains("Vince il computer!").should("be.visible");
+  });
+
+    it("should result in a tie between 'sasso' and 'sasso'", () => {
+    cy.window().then((win) => {
+      win.Math.random = () => fixtureRock;
+    });
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_SASSO_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
+    cy.contains("Pari!").should("be.visible");
+  });
+
   it("should result in 'carta' winning to 'sasso'", () => {
     cy.window().then((win) => {
       win.Math.random = () => fixtureRock;
@@ -135,15 +168,6 @@ describe("Game", () => {
     cy.contains("Hai vinto!").should("be.visible");
   });
 
-  it("should result in a tie between 'sasso' and 'sasso'", () => {
-    cy.window().then((win) => {
-      win.Math.random = () => fixtureRock;
-    });
-    cy.get(HUMAN_VS_COMPUTER_BUTTON_SASSO_SELECTOR).click();
-    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
-    cy.contains("Pari!").should("be.visible");
-  });
-
   it("should result in 'forbice' losing to 'sasso'", () => {
     cy.window().then((win) => {
       win.Math.random = () => fixtureRock;
@@ -151,6 +175,33 @@ describe("Game", () => {
     cy.get(HUMAN_VS_COMPUTER_BUTTON_FORBICE_SELECTOR).click();
     cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
     cy.contains("Vince il computer!").should("be.visible");
+  });
+
+  it("should result in 'lucertola' losing to 'sasso'", () => {
+    cy.window().then((win) => {
+      win.Math.random = () => fixtureRock;
+    });
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_LUCERTOLA_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
+    cy.contains("Vince il computer!").should("be.visible");
+  });
+
+  it("should result in 'spock' winning to 'sasso'", () => {
+    cy.window().then((win) => {
+      win.Math.random = () => fixtureRock;
+    });
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_SPOCK_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
+    cy.contains("Hai vinto!").should("be.visible");
+  });
+
+  it("should result in a tie between 'forbice' and 'forbice'", () => {
+    cy.window().then((win) => {
+      win.Math.random = () => fixtureScissors;
+    });
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_FORBICE_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
+    cy.contains("Pari!").should("be.visible");
   });
 
   it("should result in 'carta' losing to 'forbice'", () => {
@@ -171,13 +222,112 @@ describe("Game", () => {
     cy.contains("Hai vinto!").should("be.visible");
   });
 
-  it("should result in a tie between 'forbice' and 'forbice'", () => {
+  it("should result in 'lucertola' losing to 'forbice'", () => {
     cy.window().then((win) => {
       win.Math.random = () => fixtureScissors;
     });
-    cy.get(HUMAN_VS_COMPUTER_BUTTON_FORBICE_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_LUCERTOLA_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
+    cy.contains("Vince il computer!").should("be.visible");
+  });
+
+  it("should result in 'spock' winning to 'forbice'", () => {
+    cy.window().then((win) => {
+      win.Math.random = () => fixtureScissors;
+    });
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_SPOCK_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
+    cy.contains("Hai vinto!").should("be.visible");
+  });
+
+  it("should result in a tie between 'lucertola' and 'lucertola'", () => {
+    cy.window().then((win) => {
+      win.Math.random = () => fixtureLizard;
+    });
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_LUCERTOLA_SELECTOR).click();
     cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
     cy.contains("Pari!").should("be.visible");
+  });
+
+  it("should result in 'carta' losing to 'lucertola'", () => {
+    cy.window().then((win) => {
+      win.Math.random = () => fixtureLizard;
+    });
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_CARTA_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
+    cy.contains("Vince il computer!").should("be.visible");
+  });
+
+  it("should result in 'sasso' losing to 'lucertola'", () => {
+    cy.window().then((win) => {
+      win.Math.random = () => fixtureLizard;
+    });
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_SASSO_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
+    cy.contains("Hai vinto!").should("be.visible");
+  });
+
+  it("should result in 'forbice' winning to 'lucertola'", () => {
+    cy.window().then((win) => {
+      win.Math.random = () => fixtureLizard;
+    });
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_FORBICE_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
+    cy.contains("Hai vinto!").should("be.visible");
+  });
+
+  it("should result in 'spock' losing to 'lucertola'", () => {
+    cy.window().then((win) => {
+      win.Math.random = () => fixtureLizard;
+    });
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_SPOCK_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
+    cy.contains("Vince il computer!").should("be.visible");
+  });
+
+  it("should result in a tie between 'spock' and 'spock'", () => {
+    cy.window().then((win) => {
+      win.Math.random = () => fixtureSpock;
+    });
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_SPOCK_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
+    cy.contains("Pari!").should("be.visible");
+  });
+
+  it("should result in 'carta' winning to 'spock'", () => {
+    cy.window().then((win) => {
+      win.Math.random = () => fixtureSpock;
+    });
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_CARTA_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
+    cy.contains("Hai vinto!").should("be.visible");
+  });
+
+  it("should result in 'sasso' losing to 'spock'", () => {
+    cy.window().then((win) => {
+      win.Math.random = () => fixtureSpock;
+    });
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_SASSO_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
+    cy.contains("Vince il computer!").should("be.visible");
+  });
+
+  it("should result in 'forbice' losing to 'spock'", () => {
+    cy.window().then((win) => {
+      win.Math.random = () => fixtureSpock;
+    });
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_FORBICE_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
+    cy.contains("Vince il computer!").should("be.visible");
+  });
+
+  it("should result in 'lucertola' winning to 'spock'", () => {
+    cy.window().then((win) => {
+      win.Math.random = () => fixtureSpock;
+    });
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_LUCERTOLA_SELECTOR).click();
+    cy.get(HUMAN_VS_COMPUTER_DIALOG_SELECTOR).should("be.visible");
+    cy.contains("Hai vinto!").should("be.visible");
   });
 });
 
