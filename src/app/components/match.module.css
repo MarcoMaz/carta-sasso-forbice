@@ -65,7 +65,6 @@
     grid-template-columns: repeat(3, 1fr);
     margin: 0 auto;
     padding: 5rem;
-    width: 50vw;
   }
 
   .container div {
@@ -99,7 +98,7 @@
   .buttons {
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 
   .buttons button:not(:last-child) {
