@@ -10,14 +10,10 @@
 }
 
 .buttons button {
-
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
   font-size: 2rem;
-}
-
-.buttons button {
   padding: 0.5rem 1rem;
 }
 

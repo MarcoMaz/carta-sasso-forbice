@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router';
 import React from 'react';
+import { useRouter } from 'next/router';
 
 import HumanVsComputer from "../src/app/components/HumanVsComputer"
 import ComputerVsComputer from "../src/app/components/ComputerVsComputer"

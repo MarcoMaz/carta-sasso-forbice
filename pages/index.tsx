@@ -1,33 +1,64 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPerson, faRobot } from "@fortawesome/free-solid-svg-icons";
-import styles from "./index.module.css";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
-const HUMAN_VS_COMPUTER_ROUTE = "/game?mode=human-vs-computer";
-const COMPUTER_VS_COMPUTER_ROUTE = "/game?mode=computer-vs-computer";
+import styles from "./index.module.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPerson, faRobot } from "@fortawesome/free-solid-svg-icons";
+
+interface IndexText {
+  heading: string;
+  vs: string;
+}
+
+interface ImageSize {
+  width: number;
+  height: number;
+}
+
+interface ImageProps {
+  src: string;
+  alt: string;
+}
+
+const HUMAN_VS_COMPUTER_ROUTE: string = "/game?mode=human-vs-computer";
+const COMPUTER_VS_COMPUTER_ROUTE: string = "/game?mode=computer-vs-computer";
 
 const Index: React.FunctionComponent = () => {
-  const indexText = {
+  const indexText: IndexText = {
     heading: "Carta, sasso, forbice, lucertola e Spock",
     vs: "vs",
   };
-
   const { heading, vs } = indexText;
 
-  const [imageSize, setImageSize] = useState({ width: 300, height: 300 });
+  const TABLET_VIEWPORT: number = 768;
+  const DESKTOP_VIEWPORT: number = 1024;
+
+  const IMAGE_MOBILE_SIZE: number = 300;
+  const IMAGE_TABLET_SIZE: number = 400;
+
+  const [imageSize, setImageSize] = useState<ImageSize>({
+    width: IMAGE_MOBILE_SIZE,
+    height: IMAGE_MOBILE_SIZE,
+  });
 
   useEffect(() => {
     const updateImageSize = () => {
       const vw = window.innerWidth;
 
       const breakpoints = [
-        { breakpoint: 768, size: { width: 400, height: 400 } }, // Mobile
-        { breakpoint: 1024, size: { width: 300, height: 300 } }, // Desktop
+        {
+          breakpoint: TABLET_VIEWPORT,
+          size: { width: IMAGE_TABLET_SIZE, height: IMAGE_TABLET_SIZE },
+        },
+        {
+          breakpoint: DESKTOP_VIEWPORT,
+          size: { width: IMAGE_MOBILE_SIZE, height: IMAGE_MOBILE_SIZE },
+        },
       ];
 
-      let newSize = { width: 300, height: 300 };
+      let newSize = { width: IMAGE_MOBILE_SIZE, height: IMAGE_MOBILE_SIZE };
       for (const breakpoint of breakpoints) {
         if (vw >= breakpoint.breakpoint) {
           newSize = breakpoint.size;
