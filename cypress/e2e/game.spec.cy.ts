@@ -98,6 +98,14 @@ describe("Human vs Computer", () => {
   it("should display the button 'forbice'", () => {
     cy.get(HUMAN_VS_COMPUTER_BUTTON_FORBICE_SELECTOR).should("be.visible");
   });
+
+  it("should display the button 'lucertola'", () => {
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_LUCERTOLA_SELECTOR).should("be.visible");
+  });
+
+  it("should display the button 'spock'", () => {
+    cy.get(HUMAN_VS_COMPUTER_BUTTON_SPOCK_SELECTOR).should("be.visible");
+  });
 });
 
 describe("Game", () => {
