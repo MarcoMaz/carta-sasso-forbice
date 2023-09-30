@@ -10,8 +10,8 @@ Tecnologie utilizzate:
 - Cypress
 
 ## Per iniziare
-1. Clona il repo: `git clone LINK`
-2. Entra nella directory corretta: `cd PROJECT`
+1. Clona il repo: `git clone https://github.com/MarcoMaz/carta-sasso-forbice.git`
+2. Entra nella directory corretta: `cd carta-sassp-forbice`
 3. Installa le dependencies: `yarn`
 4. Fai partire l'app: `yarn dev`
 5. Apri `http://localhost:3000`
