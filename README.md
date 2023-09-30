@@ -9,6 +9,9 @@ Tecnologie utilizzate:
 - Icone FontAwesome
 - Cypress
 
+## Live Link
+https://fastidious-palmier-adafbc.netlify.app/
+
 ## Per iniziare
 1. Clona il repo: `git clone https://github.com/MarcoMaz/carta-sasso-forbice.git`
 2. Entra nella directory corretta: `cd carta-sasso-forbice`
