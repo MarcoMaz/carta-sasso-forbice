@@ -27,4 +27,4 @@ Nella GUI Cypress, fai clic su "E2E testing" per accedere alle suite di test.
 ## User Stories
 - Posso giocare Umano vs Computer
 - Posso giocare Computer vs Computer
-- Posso giocare una nuova partita conclusa quella precedente
+- Posso giocare una nuova partita conclusa quella precedente# carta-sasso-forbice
